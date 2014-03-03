@@ -1,9 +1,8 @@
 function Markov(text) {
+    this.nextWords = {};
     this.consumeText(text);
 }
 Markov.prototype = {
-    nextWords: {},
-
     consumeText: function(text) {
         var words = text.split(/[ \.]/);
         this.nextWords[''] = [];
