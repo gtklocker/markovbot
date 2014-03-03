@@ -43,13 +43,17 @@ Markov.prototype = {
 
     constructText: function(length) {
         var words = [];
-        while (words.length < length || words[words.length - 1] != '') {
+        var unstoppable = true;
+        while (words.length < length || words[words.length - 1] != '' && !unstoppable) {
             var previous = '';
             if (words.length > 0) {
                 previous = words[words.length - 1];
             }
 
             words.push(this.pickNextWord(previous));
+            if (words[words.length - 1] == '') {
+                unstoppable = false;
+            }
         }
         return this.wordsToText(words);
     }
