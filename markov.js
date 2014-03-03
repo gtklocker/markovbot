@@ -6,7 +6,7 @@ Markov.prototype = {
     consumeText: function(text) {
         var words = text.split(/[ \.]/);
 
-        if (words.length <= 1) {
+        if (words.length <= 1 || text.indexOf(" ") < 0 || text.indexOf(".") < 0) {
             throw new TypeError("No spaces or dots found on your text.");
         }
         this.nextWords[''] = [];
@@ -43,17 +43,13 @@ Markov.prototype = {
 
     constructText: function(length) {
         var words = [];
-        var unstoppable = true;
-        while (words.length < length || words[words.length - 1] != '' && !unstoppable) {
+        while (words.length < length || words[words.length - 1] != '') {
             var previous = '';
             if (words.length > 0) {
                 previous = words[words.length - 1];
             }
 
             words.push(this.pickNextWord(previous));
-            if (words[words.length - 1] == '') {
-                unstoppable = false;
-            }
         }
         return this.wordsToText(words);
     }

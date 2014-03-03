@@ -14,15 +14,23 @@
             test("nextWords shouldn't be on the prototype", function() {
                 ok(!('nextWords' in Markov.prototype));
             });
-            test("text with no dot shouldn't memory leak", function() {
-                var nodot = new Markov("the dog");
-                equal(typeof nodot.constructText(), "string");
-            });
             test("text without spaces should throw gracefully", function() {
                 throws(function() {
-                    var nospaces = new Markov("asdf");
+                    var nospaces = new Markov("starfish.");
                     nospaces.constructText(5);
                 }, /spaces/);
+            });
+            test("text without dots should throw gracefully", function() {
+                throws(function() {
+                    var nospaces = new Markov("starfish loves");
+                    nospaces.constructText(5);
+                }, /dots/);
+            });
+            test("text without spaces and dots should throw gracefully", function() {
+                throws(function() {
+                    var nospaces = new Markov("starfish");
+                    nospaces.constructText(5);
+                }, /dots/);
             });
         </script>
     </body>
