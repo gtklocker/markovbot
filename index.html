@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Markovbot - Markov Chain Experiment</title>
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="style.css">
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Markovbot</h1>
+            <p>An experiment on Markov Chains.</p>
+        </div>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="textInput">Text</label>
+                <textarea type="text" class="form-control" id="textInput" placeholder="Text" rows="8"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Generate</button>
+        </form>
+
+        <ul class="list-unstyled"> </ul>
+        <script src="markov.js"></script>
+        <script src="behavior.js"></script>
+    </body>
+</html>

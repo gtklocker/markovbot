@@ -1,0 +1,29 @@
+img {
+    width: 200px;
+    display: block;
+    border-radius: 200px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+    width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+ul {
+    text-align: left;
+    margin-top: 25px;
+}
+
+li {
+    margin: 40px 0;
+}
+
+#header {
+    padding-top: 30px;
+}
