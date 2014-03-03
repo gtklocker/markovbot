@@ -5,6 +5,10 @@ function Markov(text) {
 Markov.prototype = {
     consumeText: function(text) {
         var words = text.split(/[ \.]/);
+
+        if (words.length <= 1) {
+            throw new TypeError("No spaces or dots found on your text.");
+        }
         this.nextWords[''] = [];
         this.nextWords[''].push(words[0]);
         for (var i = 0; i < words.length - 1; ++i) {

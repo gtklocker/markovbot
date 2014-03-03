@@ -10,8 +10,15 @@
         <script src="//code.jquery.com/qunit/qunit-1.14.0.js"></script>
         <script src="markov.js"></script>
         <script>
+            module('regression test');
             test("nextWords shouldn't be on the prototype", function() {
                 ok(!('nextWords' in Markov.prototype));
+            });
+            test("text without spaces should throw gracefully", function() {
+                throws(function() {
+                    var nospaces = new Markov("asdf");
+                    nospaces.constructText(5);
+                }, /spaces/);
             });
         </script>
     </body>
